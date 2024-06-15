@@ -85,4 +85,41 @@ public class PageController {
     public String info(){
         return "info";
     }
+
+    @GetMapping("video")
+    public String video(){
+        return "video";
+    }
+
+    @GetMapping("videoInfo")
+    public String videoInfo(){
+        return "videoInfo";
+    }
+
+    @PostMapping("uv")
+    public String uv(@RequestParam("attr") MultipartFile file, HttpSession session){
+        String of = file.getOriginalFilename();
+        of = UUID.randomUUID() + of.substring(of.lastIndexOf("."));
+        String path = "E:\\Program Files\\projects\\spring_boot\\reports\\img";
+        path=path.replaceAll("%20", " ")+"/"+of;
+
+        FileOutputStream fos = null;
+        InputStream is = null;
+        try {
+            fos=new FileOutputStream(path);
+            is=file.getInputStream();
+            IOUtils.copy(is, fos);
+        } catch (Exception e) {
+            System.out.println("出现异常");
+        }finally {
+            try {
+                is.close();
+                fos.close();
+            } catch (IOException e) {
+                System.out.println("关闭异常");
+            }
+        }
+        session.setAttribute("v", "static/"+of);
+        return "redirect:/videoInfo";
+    }
 }
