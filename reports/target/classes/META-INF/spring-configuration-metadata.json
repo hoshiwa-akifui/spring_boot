@@ -1,0 +1,39 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.blessingsoftware.config.JdbcConfig",
+      "name": "spring.datasource",
+      "sourceMethod": "dataSource()",
+      "type": "javax.sql.DataSource"
+    },
+    {
+      "sourceType": "com.blessingsoftware.config.TeacherConfig",
+      "name": "teacher",
+      "sourceMethod": "getTeacher()",
+      "type": "com.blessingsoftware.entity.Teacher"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.blessingsoftware.entity.Teacher",
+      "name": "teacher.age",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.blessingsoftware.entity.Teacher",
+      "name": "teacher.id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.blessingsoftware.entity.Teacher",
+      "name": "teacher.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.blessingsoftware.entity.Teacher",
+      "name": "teacher.sex",
+      "type": "java.lang.String"
+    }
+  ]
+}
