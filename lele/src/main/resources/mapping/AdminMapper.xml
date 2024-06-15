@@ -12,4 +12,13 @@
     <update id="updateAdmin" parameterType="hashMap">
         update tb_admin set admin_account=#{admin_account}, admin_password=#{admin_password} where admin_id=#{admin_id}
     </update>
+
+    <delete id="deleteAdmin" parameterType="java.util.List">
+        delete from tb_admin
+        where admin_id in
+        <foreach collection="list" item="item" open="(" separator=","
+                 close=")">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>

@@ -60,3 +60,34 @@ function checkAll(){
         }
     }
 }
+
+function checkOne(){
+    var box = document.getElementsByName("check");
+
+    var result =true;
+    for (var i = 1; i < box.length; i++) {
+        if(box[i].checked==false){
+            result=false;
+            break;
+        }
+    }
+    if (result) {
+        box[0].checked=true;
+    }else {
+        box[0].checked=false;
+    }
+
+    var result1 =false;
+    for (var i = 1; i < box.length; i++) {
+        if(box[i].checked==true){
+            result1=true;
+            break;
+        }
+    }
+    if (result1) {
+        document.getElementById("dtn").className = "btn btn-danger";
+    }else {
+        document.getElementById("dtn").className = "btn btn-danger disabled";
+    }
+
+}

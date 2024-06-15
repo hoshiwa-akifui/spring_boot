@@ -9,4 +9,6 @@ public interface AdminMapper {
     int insertAdmin(Map<String, Object> map);
 
     int updateAdmin(Map<String, Object> map);
+
+    int deleteAdmin(List<Integer> ids);
 }

@@ -22,21 +22,6 @@
     <!-- 引入add弹出窗口的css-->
     <link href="assets/adminCJ/admin.css" rel="stylesheet"/>
 
-<#--    <script>-->
-<#--        function checkAll(){-->
-<#--            var box = document.getElementsByName("check")-->
-<#--            if(box[0].checked){-->
-<#--                for (var i = 0; i < box.length; i++) {-->
-<#--                    box[i].checked=true;-->
-<#--                }-->
-<#--            }else{-->
-<#--                for (var i = 0; i < box.length; i++) {-->
-<#--                    box[i].checked=false;-->
-<#--                }-->
-<#--            }-->
-<#--        }-->
-<#--    </script>-->
-
 </head>
 <body>
     <div id="wrapper">
@@ -399,7 +384,7 @@
                                     <tbody>
                                     <#list admins as admin>
                                         <tr class="odd gradeX" ondblclick="update(${admin.admin_id}, '${admin.admin_account}', '${admin.admin_password}');">
-                                            <th><input type="checkbox" name="check" onclick="checkOne();"/></th>
+                                            <th><input type="checkbox" name="check" onclick="checkOne();" value="${admin.admin_id}"/></th>
                                             <th>${admin.admin_id}</th>
                                             <th>${admin.admin_account}</th>
                                             <th>${admin.admin_password}</th>
@@ -445,39 +430,24 @@
     <!-- 引入add弹出窗口的css、js-->
     <script src="assets/adminCJ/admin.js"></script>
     <script>
-        function checkOne(){
-            var box = document.getElementsByName("check");
-
-            var result =true;
-            for (var i = 1; i < box.length; i++) {
-                if(box[i].checked==false){
-                    result=false;
-                    break;
-                }
-            }
-            if (result) {
-                box[0].checked=true;
-            }else {
-                box[0].checked=false;
-            }
-
-            var result1 =false;
-            for (var i = 1; i < box.length; i++) {
-                if(box[i].checked==true){
-                    result1=true;
-                    break;
-                }
-            }
-            if (result1) {
-                document.getElementById("dtn").className = "btn btn-danger";
-            }else {
-                document.getElementById("dtn").className = "btn btn-danger disabled";
-            }
-
-        }
-
         function del(){
+            var box = document.getElementsByName("check");
+            var ids="";
 
+            for (var i = 1; i < box.length; i++) {
+                if(box[i].checked){
+                    ids+=box[i].value+",";
+                }
+            }
+
+            <!-- 去掉ids中最后一个逗号-->
+            ids = ids.slice(0, -1);
+
+            if(confirm("您确定要删除id为："+ids+"的数据吗？")){
+                location.href = "deleteAdmin?ids="+ids;
+            }else{
+                alert("您取消了删除");
+            }
         }
     </script>
 

@@ -25,9 +25,18 @@ public class AdminService {
         return "redirect:/admin";
     }
 
-    public String updateAdmin(Map<String, Object> map, HttpServletRequest request, HttpSession session){
+    public String updateAdmin(Map<String, Object> map, HttpSession session){
         String msg = adminMapper.updateAdmin(map) >= 1 ? "修改成功" : "修改失败";
         session.setAttribute("msg", msg);
+        return "redirect:/admin";
+    }
+
+    public String deleteAdmin(String ids, HttpSession session){
+        List<Integer> list = new ArrayList<>();
+        for(int i=0; i<ids.split(",").length; i++){
+            list.add(Integer.parseInt(ids.split(",")[i]));
+        }
+        session.setAttribute("msg", adminMapper.deleteAdmin(list) >= 1 ? "删除成功" : "删除失败");
         return "redirect:/admin";
     }
 }

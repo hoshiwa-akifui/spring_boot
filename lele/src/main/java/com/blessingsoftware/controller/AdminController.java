@@ -34,7 +34,12 @@ public class AdminController {
     }
 
     @PostMapping("updateAdmin")
-    public String updateAdmin(@RequestParam Map<String, Object> map, HttpServletRequest request, HttpSession session){
-        return adminService.updateAdmin(map, request, session);
+    public String updateAdmin(@RequestParam Map<String, Object> map, HttpSession session){
+        return adminService.updateAdmin(map, session);
+    }
+
+    @GetMapping("deleteAdmin")
+    public String deleteAdmin(@RequestParam("ids") String ids, HttpSession session){
+        return adminService.deleteAdmin(ids, session);
     }
 }
