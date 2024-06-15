@@ -429,27 +429,6 @@
 
     <!-- 引入add弹出窗口的css、js-->
     <script src="assets/adminCJ/admin.js"></script>
-    <script>
-        function del(){
-            var box = document.getElementsByName("check");
-            var ids="";
-
-            for (var i = 1; i < box.length; i++) {
-                if(box[i].checked){
-                    ids+=box[i].value+",";
-                }
-            }
-
-            <!-- 去掉ids中最后一个逗号-->
-            ids = ids.slice(0, -1);
-
-            if(confirm("您确定要删除id为："+ids+"的数据吗？")){
-                location.href = "deleteAdmin?ids="+ids;
-            }else{
-                alert("您取消了删除");
-            }
-        }
-    </script>
 
 </body>
 </html>

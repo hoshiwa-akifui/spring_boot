@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blessingsoftware.mapper.AdminMapper">
+    <select id="queryList" resultType="hashMap">
+        select * from tb_admin order by admin_id desc
+    </select>
+
+    <insert id="insertAdmin" parameterType="hashMap">
+        insert into tb_admin values(null, #{admin_account}, #{admin_password}, now(), now(), #{admin_last_login_ip}, 1)
+    </insert>
+
+    <update id="updateAdmin" parameterType="hashMap">
+        update tb_admin set admin_account=#{admin_account}, admin_password=#{admin_password} where admin_id=#{admin_id}
+    </update>
+
+    <delete id="deleteAdmin" parameterType="java.util.List">
+        delete from tb_admin
+        where admin_id in
+        <foreach collection="list" item="item" open="(" separator=","
+                 close=")">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>

@@ -15,4 +15,13 @@
     <delete id="deleteUser" parameterType="hashMap">
         delete from tb_user where user_id=#{user_id}
     </delete>
+
+    <delete id="deleteMore" parameterType="java.util.List">
+        delete from tb_user
+        where user_id in
+        <foreach collection="list" item="item" open="(" separator=","
+                 close=")">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>
