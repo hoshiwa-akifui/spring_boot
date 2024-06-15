@@ -22,7 +22,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 //                .addResourceLocations("d:\\img");//这里填的是图片的绝对父路径
         // registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         // registry.addResourceHandler("/img/**").addResourceLocations("file:/usr/local/uploadImage/");
-        registry.addResourceHandler("/static/**").addResourceLocations("file:/E:\\Program Files\\projects\\spring-boot\\img\\");
+        registry.addResourceHandler("/static/**").addResourceLocations("file:/E:\\Program Files\\projects\\spring_boot\\spring-boot\\img\\");
         // System.out.println("url"+ResourceUtils.CLASSPATH_URL_PREFIX);
         // registry.addResourceHandler("/static/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX + "/static/");
         super.addResourceHandlers(registry);
