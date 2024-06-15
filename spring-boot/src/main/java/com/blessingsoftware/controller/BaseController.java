@@ -48,7 +48,7 @@ public class BaseController {
     public String uploadAttr(@RequestParam("attr") MultipartFile file){
         String fileName = getNewName(file.getOriginalFilename());
         // String filePath = ClassUtils.getDefaultClassLoader().getResource("static").getPath();
-        String filePath = "E:\\Program Files\\projects\\spring-boot\\img";
+        String filePath = "E:\\Program Files\\projects\\spring_boot\\spring-boot\\img";
 
         filePath=filePath.replaceAll("%20", " ");
         filePath+="/"+fileName;
