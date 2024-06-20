@@ -11,4 +11,5 @@ public class KivotosApplication {
     public static void main(String[] args) {
         SpringApplication.run(KivotosApplication.class, args);
     }
+
 }
