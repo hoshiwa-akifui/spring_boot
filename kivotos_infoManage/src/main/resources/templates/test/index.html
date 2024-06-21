@@ -1,14 +1,21 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>点击按钮显示表单</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Open Form in Popup</title>
+    <script>
+        function openFormInPopup() {
+            // 2. 打开表单页面的URL
+            var formUrl = 'form.html';
+            // 3. 使用 window.open() 打开一个新窗口
+            window.open(formUrl, 'formPopup', 'width=600,height=400');
+        }
+    </script>
 </head>
 <body>
-<button id="openFormBtn">点击打开表单</button>
-
-<script src="scripts.js"></script>
+<!-- 创建一个按钮 -->
+<button onclick="openFormInPopup()">打开表单</button>
 </body>
 </html>
