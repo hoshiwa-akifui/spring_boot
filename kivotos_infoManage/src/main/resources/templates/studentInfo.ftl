@@ -9,6 +9,7 @@
 </head>
 <body>
 <div class="background">
+    <input type="hidden" id="msg" value="${msg}"/> <!-- 接收后端发来的成功失败信息-->
     <div id="table-container">
         <button class="add-button">+</button> <!-- 添加按钮 -->
         <button id="dtn" class="delete-button disabled-button">-</button> <!-- 删除按钮 -->
@@ -39,7 +40,8 @@
 
 <#--添加、修改学生信息所用的表格-->
 <div id="popup-form" class="popup-form">
-    <form>
+    <form id="formAction" action="" method="post">
+        <h1 id="formTitle" style="text-align: center; color: #007bff"><!-- 这是是提示标题--></h1>
         <!-- 表单内容 -->
         <label for="id">学生id:</label>
         <input type="text" id="id" name="id" value="default" readonly><br><br>

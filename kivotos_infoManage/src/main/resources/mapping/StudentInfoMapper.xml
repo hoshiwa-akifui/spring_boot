@@ -4,4 +4,8 @@
     <select id="queryStudents" resultType="hashMap">
         select * from student
     </select>
+
+    <insert id="insertStudent" parameterType="hashMap">
+        insert into student values (null, #{name}, #{sex}, #{school}, #{school_id}, #{status})
+    </insert>
 </mapper>

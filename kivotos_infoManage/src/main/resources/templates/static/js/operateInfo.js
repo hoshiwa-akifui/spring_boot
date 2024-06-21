@@ -5,8 +5,11 @@ const popupForm = document.getElementById('popup-form');
 
 // 点击添加按钮时显示弹出窗口
 addButton.addEventListener('click', function () {
-    getSchoolNames();
-    popupForm.style.display = 'block';
+    getSchoolNames(function() {
+        document.getElementById("formTitle").innerText = "添加学生信息";
+        document.getElementById("formAction").action = "insertStudent";
+        popupForm.style.display = 'block';
+    });
 });
 
 // 点击空白处关闭弹窗
@@ -35,7 +38,7 @@ function getSchoolNames(callback) {
         success: function (data) {
             schoolNames=[];
             data.forEach(function (item, index) {
-                schoolNames.push([item.name]);
+                schoolNames.push([item.id, item.name]);
             });
             setSchoolOption();
             if(callback) callback();
@@ -49,26 +52,28 @@ function setSchoolOption(){
     schoolOption.innerHTML = "";
     schoolNames.forEach(sn=>{
         const option = document.createElement("option");
-        option.value = sn;
-        option.textContent = sn;
+        option.value = sn[0]+","+sn[1]; // 用来标记学校id和name
+        option.textContent = sn[1];
         schoolOption.appendChild(option);
     });
 }
 
 function update(rowData){
-    // getSchoolNames();
-    // document.getElementById("id").value = rowData[0];
-    // document.getElementById("name").value = rowData[1];
-    // document.getElementById("sex").value = rowData[2];
-    // document.getElementById("school").value = rowData[3];
-    // document.getElementById("status").value = rowData[5];
-    // popupForm.style.display = 'block';
     getSchoolNames(function() {
+        document.getElementById("formTitle").innerText = "修改学生信息";
+        document.getElementById("formAction").action = "";
         document.getElementById("id").value = rowData[0];
         document.getElementById("name").value = rowData[1];
         document.getElementById("sex").value = rowData[2];
-        document.getElementById("school").value = rowData[3];
+        document.getElementById("school").value = rowData[4]+","+rowData[3];
         document.getElementById("status").value = rowData[5];
         popupForm.style.display = 'block';
     });
+}
+
+// 收到后端发来的信息，是否执行成功
+window.onload = function (){
+    if(document.getElementById("msg").value!=""){
+        alert(document.getElementById("msg").value);
+    }
 }
