@@ -9,9 +9,12 @@
 <body>
 <div class="background">
     <div id="table-container">
+        <button class="add-button">+</button> <!-- 添加按钮 -->
+        <button id="dtn" class="delete-button disabled-button">-</button> <!-- 删除按钮 -->
         <table id="data-table">
             <thead>
             <tr>
+                <th><input type="checkbox" name="check" onclick="checkAll();"/>全选/非全选</th>
                 <th>学生id</th>
                 <th>学生姓名</th>
                 <th>学生性别</th>
