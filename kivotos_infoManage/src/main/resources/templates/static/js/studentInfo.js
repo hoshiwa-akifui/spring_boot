@@ -9,9 +9,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const endBtn = document.getElementById("endBtn");
 
     // 假设这是你的表格数据
-    const tableData = [
+    var tableData = [
         // 使用ajax加入数据
     ];
+
+    // 每隔1秒钟更新表格数据，实时查看数据
+    setInterval(getTableData, 1000);
 
     function getTableData(){
         $.ajax({
@@ -20,8 +23,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             dataType:"json",
             data:{},
             success:function(data){
+                tableData=[]; // 更新数据的时候，将原来的数据清空
                 data.forEach(function (item, index){
-                    tableData.push([item.id, item.name, item.sex, item.school, item.status]);
+                    tableData.push([item.id, item.name, item.sex, item.school, item.school_id, item.status]);
                 })
                 totalPages = Math.ceil(tableData.length / rowsPerPage);
                 displayTablePage(currentPage);
@@ -41,6 +45,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         rows.forEach(rowData => {
             const row = document.createElement('tr');
+            row.ondblclick = ()=> update(rowData);
 
             // 在每一个tr里面的第一个td前面追加一个复选框
             const checkboxCell = document.createElement('td');
@@ -51,10 +56,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
             checkboxCell.appendChild(checkbox);
             row.appendChild(checkboxCell);
 
-            rowData.forEach(cellData => {
+            rowData.forEach(function (cellData, index){
                 const cell = document.createElement('td');
-                cell.textContent = cellData;
-                row.appendChild(cell);
+                if(index!=rowData.length-2){
+                    if(index==rowData.length-1&&cellData==1){
+                        cell.textContent = "正常使用";
+                    }else if(index==rowData.length-1&&cellData==0){
+                        cell.textContent = "禁用";
+                    }else{
+                        cell.textContent = cellData;
+                    }
+                    row.appendChild(cell);
+                }
             });
             tableBody.appendChild(row);
         });

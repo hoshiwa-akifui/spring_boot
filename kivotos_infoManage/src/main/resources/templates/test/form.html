@@ -1,20 +1,26 @@
-<!-- form.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Page</title>
+    <title>表单页面</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h2>这是表单页面</h2>
-<form action="submit.php" method="post">
-    <!-- 表单内容 -->
-    <label for="username">用户名:</label>
-    <input type="text" id="username" name="username"><br><br>
-    <label for="password">密码:</label>
-    <input type="password" id="password" name="password"><br><br>
-    <input type="submit" value="提交">
-</form>
+<div class="form-container">
+    <form id="dataForm" class="modal-content">
+        <span class="closeBtn" onclick="closeWindow()">&times;</span>
+        <h2>填写表单</h2>
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">电子邮件:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">信息:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">提交</button>
+    </form>
+</div>
+
+<script src="scripts.js"></script>
 </body>
 </html>

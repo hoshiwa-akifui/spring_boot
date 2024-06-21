@@ -1,20 +1,9 @@
 document.getElementById('openFormBtn').addEventListener('click', function() {
-    document.getElementById('formModal').style.display = 'block';
+    var formWindow = window.open('form.html', '_blank', 'width=600,height=400');
+    // 设置新窗口的大小和位置等属性
+    formWindow.focus(); // 让新窗口获得焦点
 });
 
-document.getElementsByClassName('closeBtn')[0].addEventListener('click', function() {
-    document.getElementById('formModal').style.display = 'none';
-});
-
-window.addEventListener('click', function(event) {
-    if (event.target == document.getElementById('formModal')) {
-        document.getElementById('formModal').style.display = 'none';
-    }
-});
-
-document.getElementById('dataForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    // 在这里处理表单数据
-    alert('表单已提交！');
-    document.getElementById('formModal').style.display = 'none';
-});
+function closeWindow() {
+    window.close(); // 关闭当前窗口（表单页面）
+}
