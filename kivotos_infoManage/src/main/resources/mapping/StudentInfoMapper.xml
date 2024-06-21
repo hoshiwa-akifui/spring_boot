@@ -8,4 +8,17 @@
     <insert id="insertStudent" parameterType="hashMap">
         insert into student values (null, #{name}, #{sex}, #{school}, #{school_id}, #{status})
     </insert>
+
+    <update id="updateStudent" parameterType="hashMap">
+        update student set name=#{name}, sex=#{sex}, school=#{school}, school_id=#{school_id}, status=#{status} where id=#{id}
+    </update>
+
+    <delete id="deleteStudents" parameterType="java.util.List">
+        delete from student
+        where id in
+        <foreach collection="list" item="item" open="(" separator=","
+                 close=")">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>

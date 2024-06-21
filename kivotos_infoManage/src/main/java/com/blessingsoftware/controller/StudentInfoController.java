@@ -33,4 +33,14 @@ public class StudentInfoController {
     public String insertStudent(@RequestParam Map<String, Object> map, HttpSession session){
         return studentInfoService.insertStudent(map, session);
     }
+
+    @PostMapping("updateStudent")
+    public String updateStudent(@RequestParam Map<String, Object> map, HttpSession session){
+        return studentInfoService.updateStudent(map, session);
+    }
+
+    @GetMapping("deleteStudents")
+    public String deleteStudents(@RequestParam("ids") String ids, HttpSession session){
+        return studentInfoService.deleteStudents(ids, session);
+    }
 }

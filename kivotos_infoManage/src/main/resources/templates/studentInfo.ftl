@@ -12,7 +12,7 @@
     <input type="hidden" id="msg" value="${msg}"/> <!-- 接收后端发来的成功失败信息-->
     <div id="table-container">
         <button class="add-button">+</button> <!-- 添加按钮 -->
-        <button id="dtn" class="delete-button disabled-button">-</button> <!-- 删除按钮 -->
+        <button id="dtn" class="delete-button disabled-button" onclick="del();">-</button> <!-- 删除按钮 -->
         <table id="data-table">
             <thead>
             <tr>

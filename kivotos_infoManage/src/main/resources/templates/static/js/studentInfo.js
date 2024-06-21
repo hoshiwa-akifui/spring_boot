@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     ];
 
     // 每隔1秒钟更新表格数据，实时查看数据
-    setInterval(getTableData, 1000);
+    //setInterval(getTableData, 1000);
 
     function getTableData(){
         $.ajax({
@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             checkbox.type = 'checkbox';
             checkbox.name = 'check';
             checkbox.onclick = checkOne;
+            checkbox.value = rowData[0];
             checkboxCell.appendChild(checkbox);
             row.appendChild(checkboxCell);
 

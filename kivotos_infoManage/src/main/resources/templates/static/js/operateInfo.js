@@ -61,7 +61,7 @@ function setSchoolOption(){
 function update(rowData){
     getSchoolNames(function() {
         document.getElementById("formTitle").innerText = "修改学生信息";
-        document.getElementById("formAction").action = "";
+        document.getElementById("formAction").action = "updateStudent";
         document.getElementById("id").value = rowData[0];
         document.getElementById("name").value = rowData[1];
         document.getElementById("sex").value = rowData[2];
@@ -75,5 +75,25 @@ function update(rowData){
 window.onload = function (){
     if(document.getElementById("msg").value!=""){
         alert(document.getElementById("msg").value);
+    }
+}
+
+function del(){
+    var box = document.getElementsByName("check");
+    var ids="";
+
+    for (var i = 1; i < box.length; i++) {
+        if(box[i].checked){
+            ids+=box[i].value+",";
+        }
+    }
+
+    <!-- 去掉ids中最后一个逗号-->
+    ids = ids.slice(0, -1);
+
+    if(confirm("您确定要删除id为："+ids+" 的数据吗？")){
+        location.href = "deleteStudents?ids="+ids;
+    }else{
+        alert("您取消了删除");
     }
 }
