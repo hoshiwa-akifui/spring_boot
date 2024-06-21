@@ -1,0 +1,76 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Form Example</title>
+    <style>
+        /* 样式用于模态框 */
+        .modal {
+            display: none; /* 初始隐藏模态框 */
+            position: fixed; /* 固定定位，覆盖整个视口 */
+            z-index: 1; /* 堆叠顺序 */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* 允许滚动 */
+            background-color: rgba(0,0,0,0.5); /* 半透明黑色背景 */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 居中 */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* 模态框宽度 */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 按钮触发模态框 -->
+<button id="openModalBtn">打开表单</button>
+
+<!-- 模态框 -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <!-- 这里放置加载表单的容器 -->
+        <iframe id="formFrame" src="" style="width:100%;height:100%;border:none;"></iframe>
+    </div>
+</div>
+
+<script>
+    // 打开模态框
+    document.getElementById('openModalBtn').onclick = function() {
+        var modal = document.getElementById('myModal');
+        var formUrl = 'form.html'; // 表单页面的 URL
+        var iframe = document.getElementById('formFrame');
+        iframe.src = formUrl; // 设置 iframe 的 src 属性加载表单页面
+        modal.style.display = 'block'; // 显示模态框
+    }
+
+    // 关闭模态框
+    function closeModal() {
+        var modal = document.getElementById('myModal');
+        modal.style.display = 'none'; // 隐藏模态框
+        var iframe = document.getElementById('formFrame');
+        iframe.src = ''; // 清空 iframe 的 src 属性
+    }
+</script>
+
+</body>
+</html>

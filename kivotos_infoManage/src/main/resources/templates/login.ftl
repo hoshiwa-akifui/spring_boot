@@ -12,9 +12,9 @@
     <h2>おかえり先生</h2>
     <form action="login" method="post">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="请输入账号" value="akifui123">
+        <input type="text" id="username" name="username" placeholder="请输入账号" value="akifui123" required>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="请输入密码" value="123456">
+        <input type="password" id="password" name="password" placeholder="请输入密码" value="123456" required>
         <button type="submit">Login</button>
     </form>
 </div>

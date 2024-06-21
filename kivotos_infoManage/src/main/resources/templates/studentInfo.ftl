@@ -35,6 +35,7 @@
         <button id="endBtn">末页</button>
     </div>
 </div>
+
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
 <script src="static/js/studentInfo.js"></script>
 </body>
