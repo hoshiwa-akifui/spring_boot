@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const nextBtn = document.getElementById('nextBtn');
     const pageIndicator = document.getElementById('pageIndicator');
 
+    const indexBtn = document.getElementById("indexBtn");
+    const endBtn = document.getElementById("endBtn");
+
     // 假设这是你的表格数据
     const tableData = [
         // 使用ajax加入数据
@@ -52,15 +55,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function updateButtons() {
         // prevBtn.disabled = currentPage === 0;
         // nextBtn.disabled = currentPage === totalPages - 1;
-        if(currentPage === 0){  // 如果当前页是第一页，设上一页不可编辑
-            prevBtn.classList.add("disabled-button");
+        if(currentPage === 0){  // 如果当前页是第一页
+            prevBtn.classList.add("disabled-button"); // 设上一页不可编辑
+            indexBtn.classList.add("disabled-button"); // 设首页不可编辑
         }else{
             prevBtn.classList.remove("disabled-button");
+            indexBtn.classList.remove("disabled-button");
         }
-        if(currentPage === totalPages - 1){ // 如果当前页是最后一页，设下一页不可编辑
-            nextBtn.classList.add("disabled-button");
+        if(currentPage === totalPages - 1){ // 如果当前页是最后一页
+            nextBtn.classList.add("disabled-button"); // 设下一页不可编辑
+            endBtn.classList.add("disabled-button"); // 设末页不可编辑
         }else{
             nextBtn.classList.remove("disabled-button");
+            endBtn.classList.remove("disabled-button");
         }
     }
 
@@ -75,6 +82,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
     nextBtn.addEventListener('click', () => {
         if (currentPage < totalPages - 1) {
             currentPage++;
+            displayTablePage(currentPage);
+            updateButtons();
+        }
+    });
+
+    indexBtn.addEventListener("click", ()=>{
+        if (currentPage > 0) {
+            currentPage=0;
+            displayTablePage(currentPage);
+            updateButtons();
+        }
+    });
+    endBtn.addEventListener("click", ()=>{
+        if (currentPage < totalPages - 1) {
+            currentPage=totalPages - 1;
             displayTablePage(currentPage);
             updateButtons();
         }

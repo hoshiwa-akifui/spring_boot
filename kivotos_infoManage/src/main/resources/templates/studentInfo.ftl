@@ -25,9 +25,11 @@
         </table>
     </div>
     <div class="pagination">
+        <button id="indexBtn" class="disabled-button">首页</button>
         <button id="prevBtn" class="disabled-button">&laquo; 上一页</button>
         <span id="pageIndicator"></span>
         <button id="nextBtn">下一页 &raquo;</button>
+        <button id="endBtn">末页</button>
     </div>
 </div>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"></script>
