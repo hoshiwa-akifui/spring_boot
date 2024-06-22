@@ -15,7 +15,12 @@
         <input type="text" id="username" name="username" placeholder="请输入账号" value="akifui123" required>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="请输入密码" value="123456" required>
-        <button type="submit">Login</button>
+<#--        <button type="submit">Login</button>-->
+        <div class="button-container">
+            <button type="submit">Login</button>
+<#--            onclick="window.location.href='register'"-->
+            <button type="button">Register</button>
+        </div>
     </form>
 </div>
 </body>

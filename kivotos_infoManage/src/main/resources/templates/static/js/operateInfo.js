@@ -7,6 +7,8 @@ const popupForm = document.getElementById('popup-form');
 addButton.addEventListener('click', function () {
     getSchoolNames(function() {
         document.getElementById("formTitle").innerText = "添加学生信息";
+        document.getElementById("formTitle").style.color = "#4CAF50";
+
         document.getElementById("formAction").action = "insertStudent";
         popupForm.style.display = 'block';
     });
@@ -61,6 +63,8 @@ function setSchoolOption(){
 function update(rowData){
     getSchoolNames(function() {
         document.getElementById("formTitle").innerText = "修改学生信息";
+        document.getElementById("formTitle").style.color = "#007bff";
+
         document.getElementById("formAction").action = "updateStudent";
         document.getElementById("id").value = rowData[0];
         document.getElementById("name").value = rowData[1];

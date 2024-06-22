@@ -1,4 +1,4 @@
-package com.blessingsoftware.mapper;
+package com.blessingsoftware.kivotos.mapper;
 
 import java.util.*;
 

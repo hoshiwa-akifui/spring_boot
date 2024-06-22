@@ -1,6 +1,6 @@
-package com.blessingsoftware.controller;
+package com.blessingsoftware.kivotos.controller;
 
-import com.blessingsoftware.service.SchoolInfoService;
+import com.blessingsoftware.kivotos.service.SchoolInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

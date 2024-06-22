@@ -1,6 +1,6 @@
-package com.blessingsoftware.service;
+package com.blessingsoftware.kivotos.service;
 
-import com.blessingsoftware.mapper.LoginMapper;
+import com.blessingsoftware.kivotos.mapper.LoginMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
