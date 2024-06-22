@@ -8,7 +8,18 @@ addButton.addEventListener('click', function () {
     getSchoolNames(function() {
         document.getElementById("formTitle").innerText = "添加学生信息";
         document.getElementById("formTitle").style.color = "#4CAF50";
-
+        document.getElementById("formAction").querySelectorAll("label").forEach(ft=>{
+            ft.style.color = "#4CAF50";
+        });
+        document.querySelector(".button-container").querySelectorAll("button").forEach(bcb=>{
+            bcb.style.backgroundColor = "#28a745";
+            bcb.addEventListener("mouseover",()=>{
+                bcb.style.backgroundColor = "#218838";
+            });
+            bcb.addEventListener("mouseout",()=>{
+                bcb.style.backgroundColor = "#28a745";
+            });
+        });
         document.getElementById("formAction").action = "insertStudent";
         popupForm.style.display = 'block';
     });
@@ -64,7 +75,18 @@ function update(rowData){
     getSchoolNames(function() {
         document.getElementById("formTitle").innerText = "修改学生信息";
         document.getElementById("formTitle").style.color = "#007bff";
-
+        document.getElementById("formAction").querySelectorAll("label").forEach(ft=>{
+            ft.style.color = "#007bff";
+        });
+        document.querySelector(".button-container").querySelectorAll("button").forEach(bcb=>{
+            bcb.style.backgroundColor = "#007bff";
+            bcb.addEventListener("mouseover",()=>{
+                bcb.style.backgroundColor = "#0056b3";
+            });
+            bcb.addEventListener("mouseout",()=>{
+                bcb.style.backgroundColor = "#007bff";
+            });
+        });
         document.getElementById("formAction").action = "updateStudent";
         document.getElementById("id").value = rowData[0];
         document.getElementById("name").value = rowData[1];

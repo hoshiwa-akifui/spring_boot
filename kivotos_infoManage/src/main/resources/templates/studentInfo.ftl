@@ -48,24 +48,24 @@
     <form id="formAction" action="" method="post">
         <h1 id="formTitle" style="text-align: center;"><!-- 这是是提示标题--></h1>
         <!-- 表单内容 -->
-        <label for="id">学生id:</label>
+        <label for="id" style="font-weight: bold;">学生id:</label>
         <input type="text" id="id" name="id" value="default" readonly><br><br>
 
-        <label for="name">学生姓名:</label>
-        <input type="text" id="name" name="name"><br><br>
+        <label for="name" style="font-weight: bold;">学生姓名:</label>
+        <input type="text" id="name" name="name" required><br><br>
 
-        <label for="sex">学生性别:</label>
+        <label for="sex" style="font-weight: bold;">学生性别:</label>
         <select id="sex" name="sex">
             <option value="男">男</option>
             <option value="女">女</option>
         </select><br><br>
 
-        <label for="school">所属学校:</label>
+        <label for="school" style="font-weight: bold;">所属学校:</label>
         <select id="school" name="school">
             <!-- 使用ajax查询学校数据，然后依次加入学校name-->
         </select><br><br>
 
-        <label for="status">状态:</label>
+        <label for="status" style="font-weight: bold;">状态:</label>
         <select id="status" name="status">
             <option value="1">正常使用</option>
             <option value="0">禁用</option>

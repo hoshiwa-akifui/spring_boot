@@ -35,7 +35,6 @@ public class StudentInfoService {
 
         // 将前端传入的 {学校id，学校name} 分割开来，重新组装放入map里面
         String split[] = map.get("school").toString().split(",");
-        map.remove("school");
         map.put("school_id", split[0]);
         map.put("school", split[1]);
 

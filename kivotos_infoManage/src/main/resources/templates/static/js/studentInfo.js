@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // 每隔1秒钟更新表格数据，实时查看数据
     //setInterval(getTableData, 1000);
 
-    function getTableData(){
+    function getTableData(currentPage){
         $.ajax({
             url:"queryStudents",
             type:"post",
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     prevBtn.addEventListener('click', () => {
         if (currentPage > 0) {
             currentPage--;
-            displayTablePage(currentPage);
+            getTableData(currentPage);
             updateButtons();
         }
     });
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     nextBtn.addEventListener('click', () => {
         if (currentPage < totalPages - 1) {
             currentPage++;
-            displayTablePage(currentPage);
+            getTableData(currentPage);
             updateButtons();
         }
     });
@@ -118,20 +118,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
     indexBtn.addEventListener("click", ()=>{
         if (currentPage > 0) {
             currentPage=0;
-            displayTablePage(currentPage);
+            getTableData(currentPage);
             updateButtons();
         }
     });
     endBtn.addEventListener("click", ()=>{
         if (currentPage < totalPages - 1) {
             currentPage=totalPages - 1;
-            displayTablePage(currentPage);
+            getTableData(currentPage);
             updateButtons();
         }
     });
 
     // 初始化
-    getTableData();
+    getTableData(currentPage);
     // displayTablePage(currentPage);
     updateButtons();
 });

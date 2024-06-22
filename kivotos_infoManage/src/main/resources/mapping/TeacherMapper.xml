@@ -4,4 +4,8 @@
     <select id="checkTeacher" resultType="hashMap">
         select * from teacher where username=#{username} and password=#{password}
     </select>
+
+    <insert id="registerTeacher" parameterType="hashMap">
+        insert into teacher values (null, #{avatar}, #{username}, #{password}, #{name}, #{phone})
+    </insert>
 </mapper>

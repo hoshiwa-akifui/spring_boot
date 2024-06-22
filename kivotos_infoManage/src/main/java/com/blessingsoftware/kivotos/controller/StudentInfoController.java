@@ -18,11 +18,6 @@ public class StudentInfoController {
     @Autowired
     private StudentInfoService studentInfoService;
 
-    @GetMapping("studentInfo")
-    public String studentInfo(){
-        return "studentInfo";
-    }
-
     @PostMapping("queryStudents")
     @ResponseBody
     public List<Map<String, Object>> queryStudents(){

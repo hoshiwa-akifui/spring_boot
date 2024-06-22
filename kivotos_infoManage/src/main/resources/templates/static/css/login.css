@@ -47,20 +47,6 @@ body, html {
     border-radius: 5px;
 }
 
-/*.login-container button {*/
-/*    width: 100%;*/
-/*    padding: 10px;*/
-/*    background-color: #5cb85c;*/
-/*    color: white;*/
-/*    border: none;*/
-/*    border-radius: 5px;*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*.login-container button:hover {*/
-/*    background-color: #4cae4c;*/
-/*}*/
-
 .button-container {
     display: flex;
     justify-content: center;
