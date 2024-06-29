@@ -1,0 +1,112 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.background {
+    background-image: url('../img/studentInfo.png'); /* 在这里替换为你的背景图片链接 */
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+#table-container {
+    width: 80%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-top: 150px;
+    border-radius: 8px;
+
+    position: relative;
+    padding-top: 70px; /* 预留空间给按钮 */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#pageIndicator {
+    margin: 0 10px;
+    background-color: aqua;
+    color: black;
+}
+
+.disabled-button {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.add-button, .delete-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+.delete-button {
+    left: 70px; /* 将删除按钮放在添加按钮的右侧 */
+    background-color: #f44336;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+.delete-button:hover {
+    background-color: #e53935;
+    transform: scale(1.1);
+}
