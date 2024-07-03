@@ -101,7 +101,15 @@ function update(rowData){
 window.onload = function (){
     if(document.getElementById("msg").value!=""){
         alert(document.getElementById("msg").value);
+        clearMsg();
     }
+};
+// 使用完msg之后清除msg
+function clearMsg(){
+    $.ajax({
+        url: "clearMsg",
+        type: "post"
+    })
 }
 
 function del(){
